@@ -57,8 +57,8 @@ function host_color {
 
     (in_array "hosts_local" $HOST && echo "white") \
     || (in_array "hosts_nadri" $HOST && echo "cyan") \
-    || (in_array "hosts_br" $HOST && echo "red") \
-    || echo "green"
+    || (in_array "hosts_br" $HOST && echo "green") \
+    || echo "red"
 }
 
 function mk_prompt {
