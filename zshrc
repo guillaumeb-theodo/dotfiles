@@ -1,7 +1,7 @@
 # Auto-tmux in SSH
 if [ -n "$SSH_CLIENT" ]; then
     if [ "$PS1" != "" -a -z "$TMUX" -a "${SSH_TTY:-x}" != x ]; then
-        ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
+        command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
         echo "Tmux failed! continuing with normal startup"
     else
         cat /var/run/motd.dynamic
