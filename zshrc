@@ -56,7 +56,7 @@ function host_color {
     hosts_br=(frankiz lunedenn envorenn lodan koun kvh galloudel koumoul deiz heol)
 
     (in_array "hosts_local" $HOST && echo "white") \
-    || (in_array "hosts_nadri" $HOST && echo "cyan") \
+    || (in_array "hosts_nadri" $HOST && echo "blue") \
     || (in_array "hosts_br" $HOST && echo "green") \
     || echo "red"
 }
