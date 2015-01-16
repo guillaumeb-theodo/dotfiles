@@ -51,13 +51,14 @@ function host_color {
     }
 
     local HOST=$(hostname -f)
-    hosts_local=(Nadri-PC G73sw vostro)
+    hosts_local=(Nadri-PC G73Sw vostro)
     hosts_nadri=(nadrieril vps108484.ovh.net)
     hosts_br=(frankiz lunedenn)
 
-    in_array "hosts_local" $HOST && echo "white"
-    in_array "hosts_nadri" $HOST && echo "cyan"
-    in_array "hosts_br" $HOST && echo "red"
+    (in_array "hosts_local" $HOST && echo "white") \
+    || (in_array "hosts_nadri" $HOST && echo "cyan") \
+    || (in_array "hosts_br" $HOST && echo "red") \
+    || echo "green"
 }
 
 function mk_prompt {
