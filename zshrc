@@ -50,10 +50,10 @@ function host_color {
         [ ${(P)${arr_name}[(i)$2]} -le ${(P)#$(echo $arr_name)} ]
     }
 
-    local HOST=$(hostname -f)
+    local HOST=$(hostname)
     hosts_local=(Nadri-PC G73Sw vostro)
     hosts_nadri=(nadrieril vps108484.ovh.net)
-    hosts_br=(frankiz lunedenn)
+    hosts_br=(frankiz lunedenn envorenn lodan koun kvh galloudel koumoul deiz heol)
 
     (in_array "hosts_local" $HOST && echo "white") \
     || (in_array "hosts_nadri" $HOST && echo "cyan") \
