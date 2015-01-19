@@ -19,6 +19,7 @@ SAVEHIST=10000
 
 setopt extendedglob
 setopt NO_HUP
+unsetopt list_ambiguous
 bindkey -e
 
 zstyle :compinstall filename "$ZSH_DIR/zshrc"
