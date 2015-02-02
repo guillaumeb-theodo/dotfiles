@@ -23,6 +23,7 @@ unsetopt list_ambiguous
 bindkey -e
 
 zstyle :compinstall filename "$ZSH_DIR/zshrc"
+CORRECT_IGNORE='_*'
 
 autoload -Uz compinit
 compinit
