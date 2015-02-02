@@ -1,3 +1,4 @@
 alias ssu='sudo -s'
 alias s='sudo'
 alias sno='sudo nano'
+alias sv='sudo service'
