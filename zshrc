@@ -13,6 +13,7 @@ fi
 ZSH_DIR=$HOME/.zsh
 
 HISTFILE=$ZSH_DIR/history
+HISTORY_BASE=$ZSH_DIR/per-dir-history
 HIST_STAMPS="yyyy-mm-dd"
 HISTSIZE=10000
 SAVEHIST=10000
@@ -35,7 +36,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 
 # Oh-my-zsh
-plugins=(colorize colored-man)
+plugins=(colorize colored-man per-directory-history rsync tmuxinator z docker)
 
 export ZSH=$ZSH_DIR/oh-my-zsh
 ZSH_THEME="robbyrussell"
