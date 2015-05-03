@@ -36,7 +36,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 
 # Oh-my-zsh
-plugins=(colorize colored-man per-directory-history rsync tmuxinator z docker)
+plugins=(colorize colored-man debian docker git per-directory-history rsync systemd tmuxinator z)
 
 export ZSH=$ZSH_DIR/oh-my-zsh
 ZSH_THEME="robbyrussell"
