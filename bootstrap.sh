@@ -1,5 +1,6 @@
 DOTFILESDIR=$(dirname $0)
 
+cd $DORFILESDIR
 git submodule init
 git submodule update --remote
 
