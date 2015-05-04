@@ -1,10 +1,11 @@
-cd ~/.dotfiles
+DOTFILESDIR=$(dirname $0)
+
 git submodule init
 git submodule update --remote
 
 cd ~
-for F in $(ls -A .dotfiles); do
+for F in $(ls -A $DOTFILESDIR); do
   rm -rf $F
-  ln -s .dotfiles/$F
+  ln -s $DOTFILESDIR/$F
 done
-rm .git .gitmodules .gitignore
+rm .git .gitmodules bootstrap.sh
