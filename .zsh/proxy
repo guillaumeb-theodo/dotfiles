@@ -11,12 +11,14 @@ function set_proxy_on() {
     set_proxy "http://kuzh.polytechnique.fr:8080";
     sed -i 's/^export PROXY=0/export PROXY=1/' ~/.zsh/proxy
     ~/.ssh/mkconfig
+    [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
 }
 function set_proxy_off() {
     export PROXY=0
     set_proxy ""
     sed -i 's/^export PROXY=1/export PROXY=0/' ~/.zsh/proxy
     ~/.ssh/mkconfig
+    [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
 }
 alias enable_proxy='set_proxy_on'
 alias disable_proxy='set_proxy_off'
