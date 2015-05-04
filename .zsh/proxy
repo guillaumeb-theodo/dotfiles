@@ -1,0 +1,31 @@
+#!/bin/zsh
+export PROXY=1
+
+function set_proxy() {
+    export {http,https,ftp,all}_proxy=$1
+    export no_proxy="localhost,127.0.0.1"
+}
+
+function set_proxy_on() {
+    export PROXY=1
+    set_proxy "http://kuzh.polytechnique.fr:8080";
+    sed -i 's/^export PROXY=0/export PROXY=1/' ~/.zsh/proxy
+    ~/.ssh/mkconfig
+}
+function set_proxy_off() {
+    export PROXY=0
+    set_proxy ""
+    sed -i 's/^export PROXY=1/export PROXY=0/' ~/.zsh/proxy
+    ~/.ssh/mkconfig
+}
+alias enable_proxy='set_proxy_on'
+alias disable_proxy='set_proxy_off'
+
+function reset_proxy() {
+    if [ $PROXY -eq 1 ]; then
+        set_proxy_on
+    else
+        set_proxy_off
+    fi
+}
+reset_proxy

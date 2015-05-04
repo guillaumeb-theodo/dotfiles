@@ -1,0 +1,10 @@
+alias ssu='sudo -s'
+alias s='sudo'
+alias sno='sudo nano'
+alias sv='sudo service'
+function pms() {
+  sudo ap-hotspot stop
+  sudo pm-suspend
+  sudo service network-manager restart
+}
+alias pmh='sudo pm-hibernate'

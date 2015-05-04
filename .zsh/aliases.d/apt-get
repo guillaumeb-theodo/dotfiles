@@ -1,0 +1,7 @@
+alias agi='sudo apt-get install -u'
+alias agr='sudo apt-get remove'
+alias agar='sudo apt-get autoremove'
+alias agu='sudo apt-get update'
+alias agug='sudo apt-get upgrade -u'
+alias agdu='sudo apt-get dist-upgrade -u'
+alias ags='apt-cache search'
