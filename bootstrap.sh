@@ -1,4 +1,5 @@
 DOTFILESDIR=$(dirname $0)
+export LC_ALL="en_US.UTF-8"
 
 cd $DOTFILESDIR
 git submodule init
