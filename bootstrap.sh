@@ -1,13 +1,13 @@
-DOTFILESDIR=$(dirname $0)
+DOTFILESDIR=$(cd $(dirname $0); pwd)
 export LC_ALL="en_US.UTF-8"
 
-cd $DOTFILESDIR
+cd "$DOTFILESDIR"
 git submodule init
 git submodule update --remote
 
 cd ~
-for F in $(ls -A $DOTFILESDIR); do
-  rm -rf $F
-  ln -s $DOTFILESDIR/$F
+for F in $(ls -A "$DOTFILESDIR"); do
+  rm -Irf "$F"
+  ln -s "$DOTFILESDIR/$F"
 done
 rm .git .gitmodules bootstrap.sh
