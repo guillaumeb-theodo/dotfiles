@@ -1,0 +1,5 @@
+[user]
+	name = Nadrieril
+	email = nadrieril@gmail.com
+[branch]
+	autosetuprebase = always
