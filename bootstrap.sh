@@ -3,6 +3,7 @@ DOTFILESDIR=$(cd "$(dirname "$0")"; pwd)
 export LC_ALL="en_US.UTF-8"
 
 cd "$DOTFILESDIR"
+git pull
 git submodule init
 git submodule update --remote
 
