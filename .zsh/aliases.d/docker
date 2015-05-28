@@ -1,1 +1,2 @@
 alias docker-ip='docker inspect --format '"'"'{{.NetworkSettings.IPAddress}}'"'"''
+function fig-exec() {docker exec -ti $(fig ps -q $1) $2}
