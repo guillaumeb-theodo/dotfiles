@@ -27,7 +27,7 @@ zstyle :compinstall filename "$ZSH_DIR/zshrc"
 CORRECT_IGNORE='_*'
 
 fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 # _comp_options+=(globdots)
 
 # CASE_SENSITIVE="true"
