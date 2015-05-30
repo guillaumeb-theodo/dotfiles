@@ -26,8 +26,8 @@ bindkey -e
 zstyle :compinstall filename "$ZSH_DIR/zshrc"
 CORRECT_IGNORE='_*'
 
-autoload -Uz compinit
-compinit
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit
 # _comp_options+=(globdots)
 
 # CASE_SENSITIVE="true"
