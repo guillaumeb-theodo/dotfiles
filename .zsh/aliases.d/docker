@@ -1,5 +1,5 @@
 alias docker-ip='docker inspect --format '"'"'{{.NetworkSettings.IPAddress}}'"'"''
 
-# alias fig='docker-compose'
-alias dc='fig'
-function dcex() {docker exec -ti $(fig ps -q $1) ${@:2}}
+alias fig='echo "use docker-compose"'
+alias dc='docker-compose'
+function dcex() {docker exec -ti $(docker-compose ps -q $1) ${@:2}}
