@@ -16,3 +16,5 @@ for F in $(ls -A "$DOTFILESDIR"); do
   ln -s "$DOTFILESDIR/$F"
 done
 rm .git .gitmodules bootstrap.sh
+
+tmux source-file ~/.tmux.conf
