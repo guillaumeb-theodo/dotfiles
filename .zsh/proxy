@@ -1,31 +1,24 @@
 #!/bin/zsh
-export PROXY=1
+export PROXY=0
 
 function set_proxy() {
-    export {http,https,ftp,all}_proxy=$1
-    export no_proxy="localhost,127.0.0.1"
-}
-
-function set_proxy_on() {
-    export PROXY=1
-    set_proxy "http://kuzh.polytechnique.fr:8080";
-    sed -i 's/^export PROXY=0/export PROXY=1/' ~/.zsh/proxy
-    [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
-}
-function set_proxy_off() {
-    export PROXY=0
-    set_proxy ""
-    sed -i 's/^export PROXY=1/export PROXY=0/' ~/.zsh/proxy
-    [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
-}
-alias enable_proxy='set_proxy_on'
-alias disable_proxy='set_proxy_off'
-
-function reset_proxy() {
-    if [ $PROXY -eq 1 ]; then
-        set_proxy_on
-    else
-        set_proxy_off
+    if [ "$#" -ne 1 ]; then
+        echo "Illegal number of parameters"
+        return
     fi
+
+    export PROXY=$1
+
+    if [ $PROXY -eq 1 ]; then
+        export {http,https,ftp,all}_proxy="http://kuzh.polytechnique.fr:8080"
+        export no_proxy="localhost,127.0.0.1"
+    else
+        export {http,https,ftp,all}_proxy=""
+    fi
+
+    sed -i 's/^export PROXY=.\?$/export PROXY='$PROXY'/' ~/.zsh/proxy
+    [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
 }
-reset_proxy
+
+alias enable_proxy='set_proxy 1'
+alias disable_proxy='set_proxy 0'
