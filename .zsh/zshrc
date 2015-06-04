@@ -8,33 +8,7 @@ if [ -n "$SSH_CLIENT" ]; then
     fi
 fi
 
-
-# Basic setup
 ZSH_DIR=$HOME/.zsh
-
-HISTFILE=$ZSH_DIR/history
-HISTORY_BASE=$ZSH_DIR/per-dir-history
-HIST_STAMPS="yyyy-mm-dd"
-HISTSIZE=10000
-SAVEHIST=10000
-
-setopt extendedglob
-setopt NO_HUP
-unsetopt list_ambiguous
-bindkey -e
-
-zstyle :compinstall filename "$ZSH_DIR/zshrc"
-CORRECT_IGNORE='_*'
-
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-# _comp_options+=(globdots)
-
-# CASE_SENSITIVE="true"
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 
 # Oh-my-zsh
 plugins=(colorize colored-man debian docker git per-directory-history rsync systemd tmuxinator z)
@@ -45,8 +19,36 @@ DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
 
+# Basic setup
+HISTFILE=$ZSH_DIR/history
+HISTORY_BASE=$ZSH_DIR/per-dir-history
+HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Autocompletion
+setopt extendedglob
+setopt NO_HUP
+unsetopt list_ambiguous
+bindkey -e
+
+zstyle :compinstall filename "$HOME/.zshrc"
+CORRECT_IGNORE='_*'
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+# _comp_options+=(globdots)
+
+CASE_SENSITIVE="false"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+
+
 # User configuration
-export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
+#
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+export PATH="$HOME/.bin:$PATH"
 
 function mk_prompt {
     function git_prompt_info() {
