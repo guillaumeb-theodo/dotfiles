@@ -1,4 +1,5 @@
 alias docker-ip='docker inspect --format '"'"'{{.NetworkSettings.IPAddress}}'"'"''
+alias docker-clean='docker images | grep \<none\> | awk '{print $3}' | xargs docker rmi'
 
 alias fig='echo "use docker-compose"'
 alias dc='docker-compose'
