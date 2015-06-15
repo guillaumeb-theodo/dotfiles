@@ -22,3 +22,4 @@ function set_proxy() {
 
 alias enable_proxy='set_proxy 1'
 alias disable_proxy='set_proxy 0'
+set_proxy $PROXY
