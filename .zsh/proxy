@@ -1,5 +1,9 @@
 #!/bin/zsh
-export PROXY=0
+if [[ -f ~/.zsh/.proxy_state ]]; then
+    export PROXY=$(cat ~/.zsh/.proxy_state)
+else
+    export PROXY=0
+fi
 
 function proxy_load_env() {
     if [ $PROXY -eq 1 ]; then
@@ -19,7 +23,8 @@ function set_proxy() {
     export PROXY=$1
 
     proxy_load_env
-    sed -i 's/^export PROXY=.\?$/export PROXY='$PROXY'/' ~/.zsh/proxy
+#    sed -i 's/^export PROXY=.\?$/export PROXY='$PROXY'/' ~/.zsh/proxy
+    echo $PROXY > ~/.zsh/.proxy_state
     [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
 }
 
