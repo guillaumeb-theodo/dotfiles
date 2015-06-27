@@ -18,4 +18,3 @@ done
 rm .git .gitmodules bootstrap.sh
 
 tmux source-file ~/.tmux.conf
-exec zsh
