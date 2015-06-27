@@ -1,6 +1,15 @@
 #!/bin/zsh
 export PROXY=0
 
+function proxy_load_env() {
+    if [ $PROXY -eq 1 ]; then
+        export {http,https,ftp,all}_proxy="http://kuzh.polytechnique.fr:8080"
+        export no_proxy="localhost,127.0.0.1"
+    else
+        unset {http,https,ftp,all,no}_proxy
+    fi
+}
+
 function set_proxy() {
     if [ "$#" -ne 1 ]; then
         echo "Illegal number of parameters"
@@ -9,17 +18,11 @@ function set_proxy() {
 
     export PROXY=$1
 
-    if [ $PROXY -eq 1 ]; then
-        export {http,https,ftp,all}_proxy="http://kuzh.polytechnique.fr:8080"
-        export no_proxy="localhost,127.0.0.1"
-    else
-        export {http,https,ftp,all}_proxy=""
-    fi
-
+    proxy_load_env
     sed -i 's/^export PROXY=.\?$/export PROXY='$PROXY'/' ~/.zsh/proxy
     [[ -f ~/.ssh/mkconfig ]] && ~/.ssh/mkconfig
 }
 
 alias enable_proxy='set_proxy 1'
 alias disable_proxy='set_proxy 0'
-set_proxy $PROXY
+proxy_load_env
