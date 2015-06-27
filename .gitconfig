@@ -3,3 +3,5 @@
 	email = nadrieril@gmail.com
 [branch]
 	autosetuprebase = always
+[push]
+	default = simple
