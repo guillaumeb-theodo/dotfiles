@@ -48,6 +48,15 @@ COMPLETION_WAITING_DOTS="true"
 #
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# autoload -U up-line-or-beginning-search down-line-or-beginning-search
+# zle -N up-line-or-beginning-search down-line-or-beginning-search
+# bindkey '^[[A' up-line-or-beginning-search
+# bindkey '^[[B' down-line-or-beginning-search
+
+autoload zkbd
+bindkey "${key[Up]}" history-beginning-search-backward
+bindkey "${key[Down]}" history-beginning-search-forward
+
 export PATH="$HOME/.bin:$PATH"
 
 function mk_prompt {
