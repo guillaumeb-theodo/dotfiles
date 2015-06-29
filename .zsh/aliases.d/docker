@@ -1,6 +1,8 @@
 alias dk='docker'
 alias docker-ip='docker inspect --format '"'"'{{.NetworkSettings.IPAddress}}'"'"''
 alias docker-clean='docker rmi $(docker images -q --filter "dangling=true")'
+alias dk-clean='docker-clean'
+alias dcs='docker-compose-systemd.py'
 
 alias fig='echo "use docker-compose"'
 alias dc='docker-compose'
