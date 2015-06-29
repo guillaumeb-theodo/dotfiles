@@ -14,8 +14,9 @@ action = sys.argv[1]
 
 action_map = {
     "start": "systemctl start %s",
-    "status": "systemctl status %s",
     "stop": "systemctl stop %s",
+    "restart": "systemctl restart %s",
+    "status": "systemctl status %s",
     "kill": "systemctl kill %s",
     "logs": "journalctl -fu %s"
 }
