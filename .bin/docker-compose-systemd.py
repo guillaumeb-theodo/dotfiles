@@ -20,4 +20,8 @@ action_map = {
     "logs": "journalctl -fu %s"
 }
 cmd = action_map[action] % unit
-call(cmd, shell=True)
+
+try:
+    call(cmd, shell=True)
+except:
+    pass
