@@ -57,8 +57,6 @@ autoload zkbd
 bindkey "${key[Up]}" history-beginning-search-backward
 bindkey "${key[Down]}" history-beginning-search-forward
 
-export PATH="$HOME/.bin:$PATH"
-
 function mk_prompt {
     function git_prompt_info() {
       ref=$(git symbolic-ref HEAD 2> /dev/null) || return
@@ -81,3 +79,6 @@ mk_prompt
 
 source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
+
+export PATH="$HOME/.bin:$PATH"
+export EDITOR="nano"
